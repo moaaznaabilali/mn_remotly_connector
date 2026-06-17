@@ -4,7 +4,7 @@
     "version": "19.0.1.0.0",
     "category": "Project",
     "summary": "Two-way sync between Odoo Project and Remotly: projects, tasks, "
-               "stages↔columns, assignees & users, comments, time and labels. "
+               "stages↔columns, assignees & users, priority and due dates. "
                "Secure API-key auth. Real-time push + scheduled pull.",
     "description": """
 Remotly Connector for Odoo
@@ -16,11 +16,13 @@ Keep Odoo Project and Remotly in perfect sync — both ways.
 * **Stages ↔ Columns** — Odoo stages map to Remotly board columns by name
   (missing columns are created automatically).
 * **Users / assignees** — Odoo users are linked to Remotly users by email and
-  set as project members and task assignees.
-* **Comments, time and labels** — kept in sync.
-* **Two-way** — push on write (real-time) and pull changes on a schedule.
+  set as task assignees.
+* **Two-way** — push on write (real-time) and pull changes on a schedule,
+  with a loop guard to prevent echo updates.
 * **Secure** — connects with a Remotly API key (no password stored).
+* **Multi-company** aware.
 
+Requires a Remotly account. Works on Odoo 18 & 19.
 Free and open source (LGPL-3).
     """,
     "author": "Moaz Nabil",

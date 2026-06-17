@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Project form: Remotly settings -->
+    <record id="view_project_form_remotly" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Remotly" name="remotly">
+                    <group>
+                        <group>
+                            <field name="remotly_sync"/>
+                            <field name="remotly_backend_id"
+                                   invisible="not remotly_sync" required="remotly_sync"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="remotly_id" readonly="1" invisible="not remotly_id"/>
+                            <button name="action_remotly_push_now" type="object"
+                                    string="Push to Remotly now" class="btn-secondary"
+                                    invisible="not remotly_sync"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Task form: show the Remotly link -->
+    <record id="view_task_form_remotly" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="project_id" position="after">
+                <field name="remotly_id" readonly="1" invisible="not remotly_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

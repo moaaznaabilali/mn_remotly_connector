@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_remotly_sync_wizard_form" model="ir.ui.view">
+        <field name="model">remotly.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sync with Remotly">
+                <group>
+                    <field name="backend_id" options="{'no_create': True}"/>
+                    <field name="direction"/>
+                </group>
+                <footer>
+                    <button name="action_run" type="object" string="Sync" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_remotly_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Sync with Remotly</field>
+        <field name="res_model">remotly.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

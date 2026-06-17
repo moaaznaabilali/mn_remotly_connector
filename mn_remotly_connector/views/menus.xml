@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_remotly_root" name="Remotly" sequence="90"
+              groups="project.group_project_manager"/>
+    <menuitem id="menu_remotly_sync" name="Sync now" parent="menu_remotly_root"
+              action="action_remotly_sync_wizard" sequence="5"/>
+    <menuitem id="menu_remotly_backends" name="Backends" parent="menu_remotly_root"
+              action="action_remotly_backend" sequence="10"/>
+</odoo>

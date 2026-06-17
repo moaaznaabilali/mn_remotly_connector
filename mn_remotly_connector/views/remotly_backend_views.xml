@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_remotly_backend_form" model="ir.ui.view">
+        <field name="model">remotly.backend</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_test_connection" type="object" string="Test connection" class="btn-primary"/>
+                    <button name="action_sync_all" type="object" string="Sync now"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-folder">
+                            <field name="project_count" widget="statinfo" string="Projects"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-tasks">
+                            <field name="task_count" widget="statinfo" string="Tasks"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" placeholder="Remotly"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="base_url" placeholder="https://app.remotly.io"/>
+                            <field name="api_key" password="True" placeholder="rmly_..."/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="sync_direction"/>
+                            <field name="auto_push"/>
+                            <field name="auto_pull"/>
+                            <field name="last_pull" readonly="1"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        Create the API key in Remotly → Company settings → API keys, then paste it above and
+                        click <b>Test connection</b>. Enable <b>Sync with Remotly</b> on the projects you want to sync.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_remotly_backend_list" model="ir.ui.view">
+        <field name="model">remotly.backend</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="base_url"/>
+                <field name="sync_direction"/>
+                <field name="project_count"/>
+                <field name="task_count"/>
+                <field name="last_pull"/>
+                <field name="state" widget="badge" decoration-success="state == 'connected'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_remotly_backend" model="ir.actions.act_window">
+        <field name="name">Remotly Backends</field>
+        <field name="res_model">remotly.backend</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -26,7 +26,7 @@ Requires a Remotly account. Works on Odoo 18 & 19.
 Free and open source (LGPL-3).
     """,
     "author": "Moaz Nabil",
-    "website": "https://github.com/moaaznaabilali",
+    "website": "https://moaaznabil.com/en/apps/remotly-connector",
     "support": "moaaznaabilali@gmail.com",
     "license": "LGPL-3",
     "depends": ["base", "mail", "project"],
